@@ -1,1 +1,0 @@
-# KUROTA_TH
