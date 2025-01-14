@@ -1,0 +1,524 @@
+
+/* กำหนดพื้นหลัง */
+body { 
+    background-size: cover;  /* ปรับขนาดพื้นหลังให้เต็มพื้นที่ */
+    background-position: center center; /* จัดตำแหน่งพื้นหลังให้อยู่กลาง */
+    background-repeat: no-repeat; /* ห้ามให้พื้นหลังซ้ำ */
+    background-color: #ffffff;  /* กำหนดสีพื้นหลังเป็นขาว */
+    font-family: 'Kanit', sans-serif;
+}
+
+/* กำหนดความกว้างของบางองค์ประกอบ */
+.w-1 {
+    width: 100%; /* กำหนดความกว้างให้เต็ม 100% */
+}
+
+.h-1 {
+    margin-left: 10%; /* เพิ่มระยะห่างจากขอบซ้าย */
+}
+
+.con1 {
+    margin-left: 0px; /* กำหนดระยะห่างขอบซ้ายให้เป็น 0 */
+}
+
+.Logo1 {
+    margin-left: 45px; /* เพิ่มระยะห่างจากขอบซ้ายสำหรับโลโก้ */
+}
+
+/* ปรับการจัดการกับตาราง (table) ให้เหมาะสมกับหน้าจอเล็ก */
+td.w-1 {
+    width: 100%; /* ให้เซลล์ของตารางขยายเต็มความกว้าง */
+    padding-left: 20px; /* เพิ่มระยะห่างด้านซ้าย */
+    padding-right: 20px; /* เพิ่มระยะห่างด้านขวา */
+}
+
+@media (max-width: 768px) {
+    td.w-1 {
+        width: 100%; /* ทำให้ความกว้างของเซลล์เต็ม 100% */
+        padding-left: 20px; /* ให้ระยะห่างทางซ้าย */
+    }
+}
+
+/* กำหนดให้ Navbar ใช้ flexbox */
+.navbar {
+    display: flex;
+    justify-content: flex-end; /* จัดให้อยู่ทางขวา */
+    align-items: center;
+    background-color: #f1f1f1;
+    padding: 20px 0;
+    width: 100%;
+    height: 65px;
+}
+
+.navbar-nav {
+    display: flex; /* ใช้ flexbox สำหรับรายการใน navbar */
+    flex-direction: row; /* จัดรายการในแนวนอน */
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+/* กำหนดให้รายการใน Navbar มีระยะห่างกัน */
+.nav-item {
+    margin-right: 20px; /* เพิ่มระยะห่างระหว่างรายการ */
+}
+
+/* รูปแบบของลิงก์ */
+.tab-nav {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    font-family: 'Kanit', sans-serif;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0px 40px;
+    display: inline-block;
+    font-size: 18px;
+    border-right: 2px solid #024b80;
+}.tab-nav-nb {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    font-family: 'Kanit', sans-serif;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0px 40px;
+    display: inline-block;
+    font-size: 18px;
+}
+
+/* กำหนดรูปแบบเมื่อเอาเมาส์ชี้ไปที่ลิงก์ */
+.nav-link:hover {
+   
+    color: white;
+    border-radius: 3px;
+}
+
+/* เมื่อหน้าจอเล็กลง (เช่น มือถือ) ใช้ media queries */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* ให้ navbar อยู่ในแนวตั้งเมื่อหน้าจอเล็กลง */
+        justify-content: center; /* จัดให้อยู่กลาง */
+        align-items: center; /* จัดให้อยู่กลาง */
+        padding: 10px 0; /* ลดช่องว่าง */
+        height: auto; /* ปรับให้สูงตามเนื้อหา */
+    }
+
+    .navbar-nav {
+        flex-direction: column; /* ให้รายการใน navbar อยู่ในแนวตั้ง */
+        width: 100%; /* ให้รายการของ navbar กว้างเต็ม */
+    }
+
+    .nav-item {
+        margin-right: 0;
+        margin-bottom: 15px; /* เพิ่มช่องว่างระหว่างรายการ */
+    }
+
+    .tab-nav {
+        font-size: 18px; /* ลดขนาดฟอนต์ให้เล็กลง */
+        padding: 10px 20px; /* เพิ่มช่องว่างรอบๆ ลิงก์ */
+        width: 100%; /* ให้ลิงก์กว้างเต็ม */
+        text-align: center; /* จัดตำแหน่งตัวอักษรให้กลาง */
+        border-right: none; /* ลบขอบขวาออก */
+    }
+
+    .tab-nav-nb {
+        font-size: 18px;
+        width: 100%;
+        padding: 10px 20px;
+        text-align: center;
+        border-right: none;
+    }
+}
+
+/* เพิ่มขนาดตัวอักษรและการจัดการสำหรับหน้าจอเล็กกว่า 480px */
+@media (max-width: 480px) {
+    .tab-nav {
+        font-size: 16px; /* ปรับขนาดตัวอักษรให้เล็กลง */
+        padding: 8px 15px;
+    }
+
+    .tab-nav-nb {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+}
+
+
+/* กำหนดขนาดและการจัดการ iframe */
+.iframe-container {
+    display: flex;
+    border: 10px solid #ffffff; /* ใส่ขอบสีสีน้ำเงินขนาด 5px */
+    border-radius: 10px; /* ทำให้มุมขอบโค้ง */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* เพิ่มเงาที่ขอบ */
+    background-color: #ffffff;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+/* การจัดการรูปภาพให้เหมาะสม */
+.img-contract {
+    max-width: 100%; /* กำหนดขนาดของรูปภาพให้ไม่เกินขนาดคอลัมน์ */
+    height: auto;
+    padding: 0;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+/* การจัดการข้อความใน Contract */
+.text-contract {
+    font-family: 'Kanit', sans-serif;
+    font-size: 16px; /* ขนาดตัวอักษร */
+    line-height: 1.5; /* ความสูงของบรรทัด */
+    margin-bottom: 10px; /* เว้นระยะระหว่างข้อความ */
+    text-align: left;/* ข้อความตรงกลาง */
+    white-space: nowrap; /* ป้องกันไม่ให้ข้อความตัดบรรทัด */
+    overflow: hidden; /* ป้องกันไม่ให้ข้อความล้นออกจากกรอบ */
+    text-overflow: ellipsis; /* แสดง "..." ถ้าข้อความยาวเกิน */
+    margin-left: 25px;
+}
+
+/* การจัดการข้อความเพิ่มเติม */
+.text-contract1 {
+    font-family: 'Kanit', sans-serif;
+    font-size: 16px; /* ขนาดตัวอักษร */
+    line-height: 1.5; /* ความสูงของบรรทัด */
+    margin-bottom: 10px; /* เว้นระยะระหว่างข้อความ */
+    white-space: nowrap; /* ป้องกันไม่ให้ข้อความตัดบรรทัด */
+    overflow: hidden; /* ป้องกันไม่ให้ข้อความล้นออกจากกรอบ */
+    text-overflow: ellipsis; /* แสดง "..." ถ้าข้อความยาวเกิน */
+}
+
+/* การจัดการขอบบน */
+.bd-top {
+    border-top: 4px solid #024b80;
+}
+
+/* การจัดการ tab */
+.tab {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.tel {
+    width: 8%;
+    margin-top: -7px;
+    margin-left: 10px;
+}
+
+.tab-h1 {
+    margin-top: 25px;
+}
+
+/* การจัดกลุ่ม fix-group และ tel */
+.fix-group {
+    display: flex; /* ใช้ flexbox ในการจัดเรียง */
+    align-items: center; /* จัดตำแหน่งให้ไอคอนภาษาอยู่ในแนวเดียวกัน */
+    gap: 10px; /* เพิ่มระยะห่างระหว่างไอคอนภาษา */
+}
+
+/* การจัดการกับไอคอนภาษา */
+.fixlogo-lang {
+    height: auto; /* ให้ความสูงปรับตามอัตราส่วน */
+    width: 20px;/* กำหนดขนาดไอคอนภาษา */
+    margin-right: 4px;
+}
+
+.img-group {
+    margin-right: 20px;
+    margin-left: auto;
+    margin-top: -50px;
+    margin-bottom: 15px;
+    text-align-last: right;
+}
+.fixlogo {
+    width: 225px; /* กำหนดความกว้างของโลโก้เป็น 225px */
+    z-index: 10; /* กำหนดลำดับการแสดงผลให้โลโก้อยู่เหนือสิ่งอื่นๆ */
+    position: relative; /*ทำให่ตำแหน่งอยู่บนสุด*/
+    margin-left: 15px;
+    margin-top: 10px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.fonthead{
+    font-size: 20px;
+    text-align: center;
+}
+.fontcontract-h {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    font-size: 35px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color: #024b80;
+    
+    /*color: -webkit-linear-gradient(-45deg, #cf1f2d 0, #fdcf15 100%);
+    color:  linear-gradient(135deg, #cf1f2d 0, #fdcf15 100%);*/
+
+}
+.fontcontract-p {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    
+}
+/* การสร้างเส้นด้วย CSS */
+.line-divider-2 {
+    border: none; /* ลบเส้นขอบมาตรฐาน */
+    border-top: 1px dashed #000; /* กำหนดเส้นไข่ปลา บาง ขนาด 1px */
+    margin: 15px 0; /* กำหนดระยะห่างจากเนื้อหา */
+    opacity: 20%;
+}
+.line-divider-1 {
+    height: 1px;
+    background-color: #024b80;
+    margin: 0px;
+}
+.line-divider {
+    height: 3px;
+    background-color: #024b80;
+    margin: 0px;
+}
+.img-address{
+    width: 20px;
+}
+/* 🎯 จัดการ Container หลัก */
+.contact-container {
+    display: flex; /* ใช้ Flexbox */
+    flex-wrap: wrap; /* รองรับหลายบรรทัดหากหน้าจอแคบ */
+    gap: 20px; /* ระยะห่างระหว่างคอลัมน์ */
+    align-items: flex-start; /* จัดเรียงจากด้านบน */
+    margin-top: 20px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเบาๆ */
+    border-radius: 10px; /* ทำให้มุมของ container โค้ง */
+    }
+
+/* 🎯 ข้อความที่อยู่ */
+.contact-info {
+    flex: 1; /* ใช้พื้นที่เท่าที่จำเป็น */
+    max-width: 100%; /* สูงสุด 50% */
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+/* 🎯 แผนที่ */
+.contact-map {
+    flex: 1; /* ใช้พื้นที่ที่เหลือ */
+    max-width: 50%; /* สูงสุด 50% */
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+}
+
+/* 📱 สำหรับ Tablet แนวตั้ง (768px) */
+@media (max-width: 768px) {
+    .contact-info {
+        max-width: 60%; /* ข้อความกว้างขึ้น */
+    }
+
+    .contact-map {
+        max-width: 40%; /* แผนที่แคบลง */
+    }
+}
+
+/* 📱 สำหรับ Mobile (576px) */
+@media (max-width: 576px) {
+    .contact-container {
+        flex-direction: column; /* จัดเรียงแนวตั้ง */
+    }
+
+    .contact-info,
+    .contact-map {
+        max-width: 100%; /* กว้างเต็มจอ */
+    }
+
+    .contact-map iframe {
+        height: 250px; /* ลดความสูงของแผนที่ */
+    }
+}
+
+/* 🌍 สำหรับหน้าจอใหญ่ (1200px ขึ้นไป) */
+@media (min-width: 1200px) {
+    .contact-info {
+        max-width: 45%; /* ข้อความ 45% */
+    }
+
+    .contact-map {
+        max-width: 55%; /* แผนที่ 55% */
+    }
+
+    .contact-map iframe {
+        height: 400px; /* เพิ่มความสูงของแผนที่ */
+    }
+}
+.conlogo{
+    width: 50%;
+    margin-top: 50px;
+}
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown button */
+.dropbtn {
+    background-color: #f9f9f9;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Dropdown links */
+.dropdown-content a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Hover effects */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+    min-width: 70px; /* ขนาดที่ต้องการเมื่อ hover */
+    min-height: 70px; /* ความสูงเมื่อ hover */
+     padding: 1px 1px; /*เพิ่ม padding เมื่อ hover */
+    border: 2px solid #ccc; /* กรอบ */
+    border-radius: 8px; /* มุมโค้ง */
+    /* เพิ่ม transition เมื่อ hover */
+.tab-nav, .tab-nav-nb, .dropdown-content a {
+    transition: all 1s ease-in-out;
+}
+
+/* เพิ่มเอฟเฟกต์สำหรับการเปลี่ยนสี */
+.nav-link:hover {
+    color: #ffffff;
+    background-color: #024b80;  /* เพิ่มพื้นหลังให้กับลิงก์เมื่อ hover */
+    border-radius: 5px;
+}
+}
+/* เพิ่มเอฟเฟกต์การแสดงผล */
+.dropdown-content a {
+    padding: 8px 16px; /* เพิ่ม padding ให้ดูมีช่องว่าง */
+    border-radius: 5px; /* ทำให้มุมโค้ง */
+    transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1; /* เปลี่ยนสีเมื่อ hover */
+    padding-left: 20px; /* เพิ่มช่องว่างทางซ้ายเมื่อ hover */
+    padding-right: 20px; /* เพิ่มช่องว่างทางขวาเมื่อ hover */
+}
+.img-footer{
+    width: 200px;
+    margin-top: 80px;
+}.pro-img{
+    place-content: center;
+    text-align: center;
+    margin-top: 20px;
+}
+/* เพิ่ม Animation สำหรับรูปภาพ */
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* ใช้ Animation กับรูปภาพที่ต้องการ */
+.img-contract {
+    animation: slideInFromLeft 1.5s ease-in-out forwards;
+}
+
+.img-group {
+    animation: slideInFromRight 1.5s ease-in-out forwards;
+    position: relative;  /* เพิ่ม position relative */
+    z-index: 1; /* ตั้ง z-index ให้สูงกว่าค่าเริ่มต้น */
+}
+
+/* เพิ่ม Fade-In สำหรับ Container หลัก */
+.contact-container {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* เพิ่ม Animation Hover ให้กับลิงก์ */
+.tab-nav:hover,
+.tab-nav-nb:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+.img-card{
+    width: 230px;
+    margin: 0;
+    float: left;
+    border-right: inherit;
+}
+.card1{
+    width: 575px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 10px;
+    
+}
+.firlio{
+    border: 1px solid rgb(29, 110, 124); /* ขอบสีแดง */
+    border-radius: 5px; /* มุมขอบมน */
+}
+.cen{
+    place-content: center;
+    margin-top: 20px;
+}
+.p-card{
+    text-align-last: center;
+}
+
+
